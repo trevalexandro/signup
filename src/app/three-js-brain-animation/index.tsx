@@ -1,8 +1,10 @@
+'use client'
+
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls } from '@react-three/drei';
 import * as THREE from 'three';
-import { Tubes } from './brain-tubes.tsx';
-import { BrainParticles } from './brain-particles.tsx';
+import { Tubes } from './brain-tubes';
+import { BrainParticles } from './brain-particles';
 import { data } from './data';
 import { JSX } from 'react';
 
