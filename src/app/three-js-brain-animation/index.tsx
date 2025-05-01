@@ -1,12 +1,16 @@
 'use client'
 
 import { Canvas } from '@react-three/fiber';
-import { OrbitControls } from '@react-three/drei';
+import { OrbitControls, Html, Text } from '@react-three/drei';
 import * as THREE from 'three';
 import { Tubes } from './brain-tubes';
 import { BrainParticles } from './brain-particles';
 import { data } from './data';
 import { JSX } from 'react';
+import { Button } from '@/components/ui/button';
+import Link from 'next/link';
+import { id } from '../components/learn-more';
+import { Rocket } from 'lucide-react';
 
 function createBrainCurvesFromPaths(): THREE.CatmullRomCurve3[] {
   const paths = data.economics[0].paths;
@@ -35,6 +39,23 @@ const Brain = ():JSX.Element => {
       <Tubes curves={curves} />
       <BrainParticles curves={curves} />
       <OrbitControls />
+      <Text scale={[0.05, 0.05, 0.05]}>AI</Text>
+      <Text scale={[0.1, 0.1, 0.1]} position={[0, 0.15, 0]}>Automind System</Text>
+      <Html position={[-0.16, -0.15, 0]}>
+        <div className="flex flex-col md:flex-row">
+            <Button variant='secondary' className="mb-10 animate-pulse">
+              <Link href={`#${id}`}>
+                Learn more about Automind System
+              </Link>
+            </Button>
+            <Button className="bg-cyan-600 text-white mb-10 animate-pulse ml-5">
+              <Link className='flex items-center' href={`#`}>
+                Signup for early product launch
+                <Rocket className='ml-1' />
+              </Link>
+            </Button>
+          </div>
+      </Html>
     </Canvas>
   );
 }
