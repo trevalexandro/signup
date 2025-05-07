@@ -3,15 +3,18 @@
 import { Button } from '@/components/ui/button';
 import { FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage, Form } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
+import { Skeleton } from '@/components/ui/skeleton';
 import { Textarea } from '@/components/ui/textarea';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Rocket } from 'lucide-react';
-import { JSX }  from 'react';
+import { JSX, useState }  from 'react';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 
-
 const Signup = ():JSX.Element => {
+    const [requestPending, setRequestPending] = useState(false);
+    const [requestSuccessful, setRequestSuccessful] = useState(false);
+
     const formSchema = z.object({
         name: z.string().min(1, { message: "Name is required" }),
         email: z.string().email({ message: "Invalid email address" }),
@@ -22,10 +25,49 @@ const Signup = ():JSX.Element => {
         resolver: zodResolver(formSchema)
     });
       
-    const onSubmit = async (data: z.infer<typeof formSchema>) => {
+    const onSubmit = async (data: z.infer<typeof formSchema>):Promise<void> => {
         console.log(data);
-        // Here you can send the data to your server or API
+        setRequestPending(true);
+        const body = {
+            records: [
+                {
+                    fields: {
+                        Name: data.name,
+                        Email: data.email,
+                        UseCase: data.useCase
+                    }
+                }
+            ]
+        };
+
+        const response = await fetch(`${process.env.NEXT_PUBLIC_AIRTABLE_BASE_API_URL}`, {
+            method: 'POST',
+            headers: {
+                'Authorization': `Bearer ${process.env.NEXT_PUBLIC_AIRTABLE_PAT}`,
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(body)
+        });
+
+        setRequestSuccessful(response.ok);
+        setRequestPending(false);
     };
+
+    if (requestPending) {
+        return (
+            <div className='flex justify-center'>
+                <Skeleton className="w-[46%] h-[500px] rounded-xl ease-in-out" />
+            </div>
+        );
+    }
+
+    if (requestSuccessful) {
+        return (
+            <div className='flex flex-col items-center'>
+                <p className='text-5xl my-10'>Thank you for signing up!</p>
+            </div>
+        );
+    }
 
     return (
         <div className='flex flex-col items-center'>
