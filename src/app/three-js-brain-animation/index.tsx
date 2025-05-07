@@ -40,7 +40,6 @@ const Brain = ():JSX.Element => {
       <BrainParticles curves={curves} />
       <OrbitControls />
       <Text scale={[0.05, 0.05, 0.05]}>AI</Text>
-      <Text scale={[0.1, 0.1, 0.1]} position={[0, 0.15, 0]}>Automind System</Text>
       <Html position={[-0.16, -0.15, 0]}>
         <div className="flex flex-col md:flex-row">
             <Button variant='secondary' className="mb-10 animate-pulse">

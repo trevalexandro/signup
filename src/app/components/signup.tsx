@@ -6,14 +6,23 @@ import { Input } from '@/components/ui/input';
 import { Skeleton } from '@/components/ui/skeleton';
 import { Textarea } from '@/components/ui/textarea';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { Rocket } from 'lucide-react';
-import { JSX, useState }  from 'react';
+import { CircleCheck, Rocket } from 'lucide-react';
+import { JSX, useEffect, useState }  from 'react';
+import * as motion from "motion/react-client";
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 
 const Signup = ():JSX.Element => {
     const [requestPending, setRequestPending] = useState(false);
     const [requestSuccessful, setRequestSuccessful] = useState(false);
+    const [rotate, setRotate] = useState(-720);
+
+    useEffect(() => {
+        if (requestSuccessful && rotate < 720) {
+            const updatedAngle = rotate + 1;
+            setRotate(updatedAngle);
+        }
+    }, [requestSuccessful]);
 
     const formSchema = z.object({
         name: z.string().min(1, { message: "Name is required" }),
@@ -26,7 +35,6 @@ const Signup = ():JSX.Element => {
     });
       
     const onSubmit = async (data: z.infer<typeof formSchema>):Promise<void> => {
-        console.log(data);
         setRequestPending(true);
         const body = {
             records: [
@@ -64,7 +72,10 @@ const Signup = ():JSX.Element => {
     if (requestSuccessful) {
         return (
             <div className='flex flex-col items-center'>
-                <p className='text-5xl my-10'>Thank you for signing up!</p>
+                <p className='text-5xl my-10'>We'll be in touch!</p>
+                <motion.div className='ease-in-out' animate={{ x: 0, y: 0, rotate }} transition={{ type: "spring" }}>
+                    <CircleCheck size={300} stroke='green' />
+                </motion.div>
             </div>
         );
     }
