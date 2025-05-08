@@ -10,7 +10,15 @@ import Signup from './components/signup';
 export default function Home() {
   return (
     <div className="h-full w-full">
-      <Brain />
+      <div className='w-inherit flex justify-center block md:hidden'>
+        <p className='text-5xl'>Automind System</p>
+      </div>
+      <div className='w-full h-full md:hidden'>
+        <Brain displayClassName='hidden' />
+      </div>
+      <div className='w-full h-full max-md:hidden'>
+        <Brain />
+      </div>
       <LearnMore />
       <Signup />
     </div>
