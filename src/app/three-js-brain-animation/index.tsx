@@ -7,11 +7,7 @@ import { Tubes } from './brain-tubes';
 import { BrainParticles } from './brain-particles';
 import { data } from './data';
 import { JSX } from 'react';
-import { Button } from '@/components/ui/button';
-import Link from 'next/link';
-import { id as learnMoreId } from '../components/learn-more';
-import { id as signupId } from '../components/signup';
-import { Rocket } from 'lucide-react';
+import SplashButtons from '../components/splash-buttons';
 
 function createBrainCurvesFromPaths(): THREE.CatmullRomCurve3[] {
   const paths = data.economics[0].paths;
@@ -60,38 +56,14 @@ const Brain = ({ screenSize }:BrainProps):JSX.Element => {
       <OrbitControls />
       { screenSize === 'sm' &&
         <Html position={[-0.15, 0.20, 0]}>
-          <div className="flex flex-col items-center">
-            <Button variant='secondary' className="mb-5 animate-pulse">
-              <Link href={`#${learnMoreId}`}>
-                Learn more about Automind System
-              </Link>
-            </Button>
-            <Button className="bg-cyan-600 text-white mb-5 animate-pulse">
-              <Link className='flex items-center' href={`#${signupId}`}>
-                Signup for early product launch
-                <Rocket className='ml-1' />
-              </Link>
-            </Button>
-          </div>
+          <SplashButtons />
         </Html>
       }
       {screenSize === 'sm' ? <></> : <Text position={[0, 0.15, 0]} scale={[0.10, 0.10, 0]}>Automind System</Text> }
       <Text scale={[0.05, 0.05, 0.05]}>AI</Text>
       { screenSize !== 'sm' &&
         <Html position={buttonsPositions[screenSize as keyof ButtonsPositions].position}>
-          <div className="flex">
-            <Button variant='secondary' className="mb-10 animate-pulse">
-              <Link href={`#${learnMoreId}`}>
-                Learn more about Automind System
-              </Link>
-            </Button>
-            <Button className="bg-cyan-600 text-white mb-10 animate-pulse ml-5">
-              <Link className='flex items-center' href={`#${signupId}`}>
-                Signup for early product launch
-                <Rocket className='ml-1' />
-              </Link>
-            </Button>
-          </div>
+          <SplashButtons />
         </Html>
       }
     </Canvas>
