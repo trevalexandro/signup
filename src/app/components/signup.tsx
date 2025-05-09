@@ -12,6 +12,8 @@ import * as motion from "motion/react-client";
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 
+export const id = 'signup';
+
 const Signup = ():JSX.Element => {
     const [requestPending, setRequestPending] = useState(false);
     const [requestSuccessful, setRequestSuccessful] = useState(false);
@@ -81,7 +83,7 @@ const Signup = ():JSX.Element => {
     }
 
     return (
-        <div className='flex flex-col items-center'>
+        <div id={id} className='flex flex-col items-center'>
             <p className='text-5xl my-10'>Sign up for early product launch!</p>
             <Form {...form}>
                 <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 w-[46%]">
