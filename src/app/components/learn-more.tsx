@@ -14,7 +14,7 @@ const LearnMore = ({ screenSize }:LearnMoreProps):JSX.Element => {
                 <Laptop className="inline-block md:hidden" stroke="oklch(60.9% 0.126 221.723)" size={200} />
                 <Laptop className="hidden md:inline-block" stroke="oklch(60.9% 0.126 221.723)" size={300} />
                 <div className="flex flex-col items-center md:items-start ml-0 md:ml-5">
-                    <p className="text-3xl md:text-5xl">Game-Changing Solutions</p>
+                    <p className="text-3xl md:text-4xl lg:text-5xl">Game-Changing Solutions</p>
                     <br />
                     <p className="text-xl text-gray-400 block ml-5 md:hidden">
                         We partner with you to understand your business challenges and help you make data-driven decisions 
@@ -28,12 +28,23 @@ const LearnMore = ({ screenSize }:LearnMoreProps):JSX.Element => {
                     </p>
                 </div>
             </div>
-            <div className="flex justify-end items-center mt-50">
-                <Cloud stroke="oklch(60.9% 0.126 221.723)" size={300} />
-                <div className="flex flex-col ml-5">
-                    <p className="text-5xl">Scalable Infrastructure</p>
+            <div className="flex flex-col md:flex-row md:justify-end items-center mt-25 md:mt-50">
+                <Cloud className="inline-block md:hidden" stroke="oklch(60.9% 0.126 221.723)" size={200} />
+                <Cloud className="hidden md:inline-block" stroke="oklch(60.9% 0.126 221.723)" size={300} />
+                <div className="flex flex-col items-center md:items-start ml-0 md:ml-5">
+                    <p className="text-3xl md:text-4xl lg:text-5xl">Scalable Infrastructure</p>
                     <br />
-                    <p className="text-xl text-gray-400">
+                    <p className="text-xl text-gray-400 block ml-5 md:hidden">
+                        Our operating platform with customers is constantly scaling our team and infrastructure. We have the 
+                        capabilities to process and analyze large amounts of data using cloud computing and big data technologies.
+                    </p>
+                    <p className="text-xl text-gray-400 block hidden md:block lg:hidden">
+                        Our operating platform with customers is constantly<br />
+                        scaling our team and infrastructure. We have the<br /> 
+                        capabilities to process and analyze large amounts of<br />
+                        data using cloud computing and big data technologies.
+                    </p>
+                    <p className="text-xl text-gray-400 hidden lg:block">
                         Our operating platform with customers is constantly scaling<br /> 
                         our team and infrastructure. We have the capabilities to<br />
                         process and analyze large amounts of data using cloud<br /> 
@@ -41,12 +52,23 @@ const LearnMore = ({ screenSize }:LearnMoreProps):JSX.Element => {
                     </p>
                 </div>
             </div>
-            <div className="flex items-center mt-50">
-                <Workflow stroke="oklch(60.9% 0.126 221.723)" size={300} />
-                <div className="flex flex-col ml-5">
-                    <p className="text-5xl">Seamless Integration</p>
+            <div className="flex flex-col md:flex-row items-center mt-25 md:mt-50">
+                <Workflow className="inline-block md:hidden" stroke="oklch(60.9% 0.126 221.723)" size={200} />
+                <Workflow className="hidden md:inline-block" stroke="oklch(60.9% 0.126 221.723)" size={300} />
+                <div className="flex flex-col items-center md:items-start ml-0 md:ml-5">
+                    <p className="text-3xl md:text-4xl lg:text-5xl">Seamless Integration</p>
                     <br />
-                    <p className="text-xl text-gray-400">
+                    <p className="text-xl text-gray-400 block md:hidden">
+                        Our platform seamlessly integrates AI with your existing systems and processes, allowing you to easily 
+                        visualize, analyze, and make sense of your data without disrupting your workflows.
+                    </p>
+                    <p className="text-xl text-gray-400 hidden md:block lg:hidden">
+                        Our platform seamlessly integrates AI with your<br />
+                        existing systems and processes, allowing you to<br />
+                        easily visualize, analyze, and make sense of your<br />
+                        data without disrupting your workflows.
+                    </p>
+                    <p className="text-xl text-gray-400 hidden lg:block">
                         Our platform seamlessly integrates AI with your existing<br />
                         systems and processes, allowing you to easily<br /> 
                         visualize, analyze, and make sense of your data<br /> 

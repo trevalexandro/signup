@@ -7,11 +7,7 @@ import { Tubes } from './brain-tubes';
 import { BrainParticles } from './brain-particles';
 import { data } from './data';
 import { JSX } from 'react';
-import { Button } from '@/components/ui/button';
-import Link from 'next/link';
-import { id as learnMoreId } from '../components/learn-more';
-import { id as signupId } from '../components/signup';
-import { Rocket } from 'lucide-react';
+import SplashButtons from '../components/splash-buttons';
 
 function createBrainCurvesFromPaths(): THREE.CatmullRomCurve3[] {
   const paths = data.economics[0].paths;
