@@ -35,21 +35,7 @@ interface BrainProps {
   screenSize?: string;
 };
 
-interface ButtonsPosition {
-  position: [x: number, y: number, z: number];
-};
-
-interface ButtonsPositions {
-  [key: string]: ButtonsPosition;
-};
-
 const Brain = ({ screenSize }:BrainProps):JSX.Element => {
-  const buttonsPositions: ButtonsPositions = {
-    md: { position: [-0.29, -0.15, 0] },
-    lg: { position: [-0.30, -0.15, 0] },
-    xl: { position: [-0.16, -0.15, 0] }
-  };
-
   return (
     <Canvas camera={{ position: [0, 0, 0.3], near: 0.001, far: 5 }}>
       <color attach="background" args={['black']} />
@@ -59,7 +45,7 @@ const Brain = ({ screenSize }:BrainProps):JSX.Element => {
       <BrainParticles curves={curves} />
       <OrbitControls />
       { screenSize === 'sm' &&
-        <Html position={[-0.15, 0.20, 0]}>
+        <Html position={[-0.06, 0.20, 0]}>
           <div className="flex flex-col items-center">
             <Button variant='secondary' className="mb-5 animate-pulse">
               <Link href={`#${learnMoreId}`}>
@@ -75,10 +61,10 @@ const Brain = ({ screenSize }:BrainProps):JSX.Element => {
           </div>
         </Html>
       }
-      {screenSize === 'sm' ? <></> : <Text position={[0, 0.15, 0]} scale={[0.10, 0.10, 0]}>Automind System</Text> }
+      {screenSize === 'xl' && <Text position={[0, 0.15, 0]} scale={[0.10, 0.10, 0]}>Automind System</Text> }
       <Text scale={[0.05, 0.05, 0.05]}>AI</Text>
-      { screenSize !== 'sm' &&
-        <Html position={buttonsPositions[screenSize as keyof ButtonsPositions].position}>
+      { screenSize === 'xl' &&
+        <Html position={[-0.16, -0.15, 0]}>
           <div className="flex">
             <Button variant='secondary' className="mb-10 animate-pulse">
               <Link href={`#${learnMoreId}`}>
