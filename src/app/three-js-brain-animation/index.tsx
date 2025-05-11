@@ -41,39 +41,15 @@ const Brain = ({ screenSize }:BrainProps):JSX.Element => {
       <BrainParticles curves={curves} />
       <OrbitControls />
       { screenSize === 'sm' &&
-        <Html position={[-0.06, 0.20, 0]}>
-          <div className="flex flex-col items-center">
-            <Button variant='secondary' className="mb-5 animate-pulse">
-              <Link href={`#${learnMoreId}`}>
-                Learn more about Automind System
-              </Link>
-            </Button>
-            <Button className="bg-cyan-600 text-white mb-5 animate-pulse">
-              <Link className='flex items-center' href={`#${signupId}`}>
-                Signup for early product launch
-                <Rocket className='ml-1' />
-              </Link>
-            </Button>
-          </div>
+        <Html position={[-0.06, 0.22, 0]}>
+          <SplashButtons />
         </Html>
       }
-      {screenSize === 'xl' && <Text position={[0, 0.15, 0]} scale={[0.10, 0.10, 0]}>Automind System</Text> }
+      { screenSize === 'xl' && <Text position={[0, 0.15, 0]} scale={[0.10, 0.10, 0]}>Automind System</Text> }
       <Text scale={[0.05, 0.05, 0.05]}>AI</Text>
       { screenSize === 'xl' &&
-        <Html position={[-0.16, -0.15, 0]}>
-          <div className="flex">
-            <Button variant='secondary' className="mb-10 animate-pulse">
-              <Link href={`#${learnMoreId}`}>
-                Learn more about Automind System
-              </Link>
-            </Button>
-            <Button className="bg-cyan-600 text-white mb-10 animate-pulse ml-5">
-              <Link className='flex items-center' href={`#${signupId}`}>
-                Signup for early product launch
-                <Rocket className='ml-1' />
-              </Link>
-            </Button>
-          </div>
+        <Html position={[-0.19, -0.15, 0]}>
+          <SplashButtons />
         </Html>
       }
     </Canvas>
