@@ -24,7 +24,7 @@ const Signup = ():JSX.Element => {
             const updatedAngle = rotate + 1;
             setRotate(updatedAngle);
         }
-    }, [requestSuccessful]);
+    }, [requestSuccessful, rotate]);
 
     const formSchema = z.object({
         name: z.string().min(1, { message: "Name is required" }),
@@ -74,7 +74,7 @@ const Signup = ():JSX.Element => {
     if (requestSuccessful) {
         return (
             <div className='flex flex-col items-center'>
-                <p className='text-3xl md:text-5xl my-10'>We'll be in touch!</p>
+                <p className='text-3xl md:text-5xl my-10'>{`We'll be in touch!`}</p>
                 <motion.div className='ease-in-out' animate={{ x: 0, y: 0, rotate }} transition={{ type: "spring" }}>
                     <CircleCheck size={300} stroke='green' />
                 </motion.div>
