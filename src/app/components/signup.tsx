@@ -65,8 +65,8 @@ const Signup = ():JSX.Element => {
 
     if (requestPending) {
         return (
-            <div className='flex justify-center'>
-                <Skeleton className="w-[46%] h-[500px] rounded-xl ease-in-out" />
+            <div className='flex justify-center mt-10'>
+                <Skeleton className="w-[90%] lg:w-[46%] h-[495px] mb-5 rounded-xl ease-in-out" />
             </div>
         );
     }
@@ -74,7 +74,7 @@ const Signup = ():JSX.Element => {
     if (requestSuccessful) {
         return (
             <div className='flex flex-col items-center'>
-                <p className='text-5xl my-10'>We'll be in touch!</p>
+                <p className='text-3xl md:text-5xl my-10'>We'll be in touch!</p>
                 <motion.div className='ease-in-out' animate={{ x: 0, y: 0, rotate }} transition={{ type: "spring" }}>
                     <CircleCheck size={300} stroke='green' />
                 </motion.div>
@@ -84,9 +84,9 @@ const Signup = ():JSX.Element => {
 
     return (
         <div id={id} className='flex flex-col items-center'>
-            <p className='text-5xl my-10'>Sign up for early product launch!</p>
+            <p className='text-2xl md:text-3xl lg:text-5xl my-10'>Sign up for early product launch!</p>
             <Form {...form}>
-                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 w-[46%]">
+                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 w-[90%] lg:w-[46%]">
                     <FormField
                         control={form.control}
                         name="name"
