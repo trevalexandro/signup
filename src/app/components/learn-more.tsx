@@ -3,11 +3,7 @@ import { JSX } from "react";
 
 export const id = 'learn-more';
 
-interface LearnMoreProps {
-    screenSize?: string;
-};
-
-const LearnMore = ({ screenSize }:LearnMoreProps):JSX.Element => {
+const LearnMore = ():JSX.Element => {
     return (
         <div id={id} className="mt-50 flex flex-col w-full">
             <div className="flex flex-col md:flex-row items-center">
