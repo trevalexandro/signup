@@ -7,13 +7,22 @@ declare global {
           brainParticleMaterial: {
             time?: number;
             color?: THREE.Color;
-            moujse?: THREE.Vector3;
             attach?: string;
             depthTest?: boolean;
             depthWrite?: boolean;
             transparent?: boolean;
             blending?: number;
-            side?: number | undefined;
+          },
+          brainMaterial: {
+            time?: number;
+            color?: THREE.Color;
+            attach?: string;
+            side?: number;
+            transparent?: boolean;
+            depthTest?: boolean;
+            depthWrite?: boolean;
+            blending?: number;
+            mouse?: THREE.Vector3;
             ref?: React.Ref<THREE.ShaderMaterial>;
           }
         }
