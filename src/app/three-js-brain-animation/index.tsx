@@ -40,11 +40,6 @@ const Brain = ({ screenSize }:BrainProps):JSX.Element => {
       <Tubes curves={curves} />
       <BrainParticles curves={curves} />
       <OrbitControls />
-      { screenSize === 'sm' &&
-        <Html position={[-0.06, 0.22, 0]}>
-          <SplashButtons />
-        </Html>
-      }
       { screenSize === 'xl' && <Text position={[0, 0.15, 0]} scale={[0.10, 0.10, 0]}>Automind System</Text> }
       <Text scale={[0.05, 0.05, 0.05]}>AI</Text>
       { screenSize === 'xl' &&
