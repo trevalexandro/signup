@@ -9,12 +9,12 @@ import { id as signupId } from './signup';
 const SplashButtons = ():JSX.Element => {
     return (
         <div className="flex flex-col md:flex-row max-md:items-center md:max-xl:justify-center md:max-xl:w-full md:space-x-10 md:max-xl:mt-10">
-          <Button size='lg' variant='secondary' className="xl:hidden animate-pulse">
+          <Button size='lg' variant='secondary' className="animate-pulse">
             <Link className='text-lg' href={`#${learnMoreId}`}>
               Learn more about Automind System
             </Link>
           </Button>
-          <Button size='lg' className="bg-cyan-600 text-white xl:hidden animate-pulse">
+          <Button size='lg' className="bg-cyan-600 text-white animate-pulse">
             <Link className='flex items-center text-lg' href={`#${signupId}`}>
               Signup for early product launch
               <Rocket className='ml-1' />
