@@ -123,7 +123,7 @@ const Signup = ():JSX.Element => {
                                     <Textarea {... field} />
                                 </FormControl>
                                 <FormDescription>
-                                    Tell us a little bit about how AutoMind System can help you.
+                                    Tell us a little bit about how Automind System can help you.
                                 </FormDescription>
                                 <FormMessage />
                             </FormItem>
