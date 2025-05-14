@@ -11,7 +11,7 @@ const MobileMenu = ():JSX.Element => {
     return (
         <Accordion className="w-full justify-center" type="single" collapsible>
             <AccordionItem value="menu">
-                <AccordionTrigger className="flex justify-around items-center">
+                <AccordionTrigger className="flex justify-around items-center active:underline-none">
                     <Menu className="invisible" />
                     <p className='text-3xl '>Automind System</p>
                 </AccordionTrigger>
