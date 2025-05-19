@@ -4,11 +4,13 @@ import { JSX } from "react";
 export const id = 'learn-more';
 
 const LearnMore = ():JSX.Element => {
+    const ICON_STROKE_COLOR = 'oklch(0.5594 0.1978 25.66)';
+
     return (
         <div id={id} className="mt-50 flex flex-col w-full">
             <div className="flex flex-col md:flex-row items-center">
-                <Laptop className="inline-block md:hidden" stroke="oklch(60.9% 0.126 221.723)" size={200} />
-                <Laptop className="hidden md:inline-block" stroke="oklch(60.9% 0.126 221.723)" size={300} />
+                <Laptop className="inline-block md:hidden" stroke={ICON_STROKE_COLOR} size={200} />
+                <Laptop className="hidden md:inline-block" stroke={ICON_STROKE_COLOR} size={300} />
                 <div className="flex flex-col items-center md:items-start ml-0 md:ml-5">
                     <p className="text-3xl md:text-4xl lg:text-5xl">Game-Changing Solutions</p>
                     <br />
@@ -25,8 +27,8 @@ const LearnMore = ():JSX.Element => {
                 </div>
             </div>
             <div className="flex flex-col md:flex-row md:justify-end items-center mt-25 md:mt-50">
-                <Cloud className="inline-block md:hidden" stroke="oklch(60.9% 0.126 221.723)" size={200} />
-                <Cloud className="hidden md:inline-block" stroke="oklch(60.9% 0.126 221.723)" size={300} />
+                <Cloud className="inline-block md:hidden" stroke={ICON_STROKE_COLOR} size={200} />
+                <Cloud className="hidden md:inline-block" stroke={ICON_STROKE_COLOR} size={300} />
                 <div className="flex flex-col items-center md:items-start ml-0 md:ml-5">
                     <p className="text-3xl md:text-4xl lg:text-5xl">Scalable Infrastructure</p>
                     <br />
@@ -49,8 +51,8 @@ const LearnMore = ():JSX.Element => {
                 </div>
             </div>
             <div className="flex flex-col md:flex-row items-center mt-25 md:mt-50">
-                <Workflow className="inline-block md:hidden" stroke="oklch(60.9% 0.126 221.723)" size={200} />
-                <Workflow className="hidden md:inline-block" stroke="oklch(60.9% 0.126 221.723)" size={300} />
+                <Workflow className="inline-block md:hidden" stroke={ICON_STROKE_COLOR} size={200} />
+                <Workflow className="hidden md:inline-block" stroke={ICON_STROKE_COLOR} size={300} />
                 <div className="flex flex-col items-center md:items-start ml-0 md:ml-5">
                     <p className="text-3xl md:text-4xl lg:text-5xl">Seamless Integration</p>
                     <br />

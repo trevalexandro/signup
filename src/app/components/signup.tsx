@@ -129,7 +129,7 @@ const Signup = ():JSX.Element => {
                             </FormItem>
                         )}
                     />
-                    <Button type="submit" className='mb-5 bg-cyan-600 text-white'>
+                    <Button type="submit" className='mb-5 bg-automind-red text-white'>
                         Submit
                         <Rocket />
                     </Button>
