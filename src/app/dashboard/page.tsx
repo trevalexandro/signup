@@ -2,38 +2,25 @@
 
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
-import { supabase } from '../../../utils/supabaseClient'
+import { toast } from 'sonner'
 
 export default function Dashboard() {
   const [posts, setPosts] = useState<any[]>([])
   const router = useRouter()
 
   useEffect(() => {
-    const checkSession = async () => {
-      const { data: { session } } = await supabase.auth.getSession()
-      if (!session) {
-        router.push('/auth')
-      }
-    }
-    checkSession()
-  }, [])
-
-  useEffect(() => {
     const fetchPosts = async () => {
-      const { data, error } = await supabase
-        .from('posts')
-        .select('*')
-        .order('scheduled_date', { ascending: true })
-
-      if (error) {
-        console.error('Error fetching posts:', error)
-      } else {
-        setPosts(data)
+      const response = await fetch('/api/posts');
+      if (!response.ok) {
+        toast.error('Failed to fetch posts. Please try again later.');
       }
+
+      const data = await response.json();
+      setPosts(data);
     }
 
-    fetchPosts()
-  }, [])
+    fetchPosts();
+  }, []);
 
   return (
     <div className="min-h-screen bg-[#f5f5f5] font-sans">
